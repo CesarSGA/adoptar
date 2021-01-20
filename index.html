@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -15,32 +15,24 @@
 
 <body>
     <section>
-
         <div class="navbar-fixed">
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="documents/adopta.html">Gatos</a></li>
-            <li><a href="documents/adopta2.html">Perros</a></li>
-           
-          </ul>
-          
-        <nav>
-            
-         
-            <div class="container" >
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo left"><i class="material-icons">child_friendly</i>PETTING</a>
-                    
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    
-                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Adopta<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a href="img/Cartel/map.jpg">Ubicación</a></li>
-                        <li><a class="waves-effect waves-light btn modal-trigger" href="#modalEs">Esteriliza</a></li>
-
-                    </ul>
+            <ul id="dropdown1" class="dropdown-content">
+                <li><a href="documents/mascotas_gatos.php">Gatos</a></li>
+                <li><a href="documents/mascotas_perros.php">Perros</a></li>
+            </ul>
+            <nav>
+                <div class="container" >
+                    <div class="nav-wrapper">
+                        <a href="#" class="brand-logo left"><i class="material-icons">child_friendly</i>PETTING</a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Adopta<i class="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a href="img/Cartel/map.jpg">Ubicación</a></li>
+                            <li><a class="waves-effect waves-light btn modal-trigger" href="#modalEs">Esteriliza</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </nav>
         </div>
-        </nav>
     </section>
     <section class="col l12 m12 s12">
         <div class="carousel carousel-slider center">
@@ -366,10 +358,11 @@
         $('.carousel').carousel();
 
         $(document).ready(function(){
-    $('.modal').modal();
-  });
-  src="https://code.jquery.com/jquery-2.1.4.min.js"
-  src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"
+            $('.modal').modal();
+        });
+
+        src="https://code.jquery.com/jquery-2.1.4.min.js"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"
 
         $(".dropdown-trigger").dropdown();
     </script>
