@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- <link rel="stylesheet" href="css/materialize.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
-    <script src="js/materialize.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Adopta Mascota</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>PETTING</title>
 </head>
-
-<body>
-    <section>
+<body style="background-color: wheat;">
+    <section class="seccion_header">
         <div class="navbar-fixed">
             <ul id="dropdown1" class="dropdown-content">
-                <li><a href="documents/mascotas_gatos.php">Gatos</a></li>
-                <li><a href="documents/mascotas_perros.php">Perros</a></li>
+                <li><a href="views/gatos.php">Gatos</a></li>
+                <li><a href="views/perros.php">Perros</a></li>
             </ul>
             <nav>
                 <div class="container" >
                     <div class="nav-wrapper">
-                        <a href="#" class="brand-logo left"><i class="material-icons">child_friendly</i>PETTING</a>
+                        <a href="./index.html" class="brand-logo left"><i class="material-icons">child_friendly</i>PETTING</a>
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Adopta<i class="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a href="img/Cartel/map.jpg">Ubicación</a></li>
+                            <li><a href="views/stories.php">Historias</a></li>
                             <li><a class="waves-effect waves-light btn modal-trigger" href="#modalEs">Esteriliza</a></li>
                         </ul>
                     </div>
@@ -34,154 +30,150 @@
             </nav>
         </div>
     </section>
-    <section class="col l12 m12 s12">
-        <div class="carousel carousel-slider center">
-            <a class="carousel-item" href="#one!"><img src="img/Cartel/6.jpg"></a>
- 
-            <a class="carousel-item" href="#two!"><img src="img/Cartel/7.jpg"></a>
-         
-            <a class="carousel-item" href="#three!"><img src="img/Cartel/1.jpg"></a>
-         
-            <a class="carousel-item" href="#four!"><img src="img/Cartel/4.jpg"></a>
-        </div>
+    <section class="seccion_carousel col 12 s12">
+        <div class="carousel carousel-slider center " data-indicators="true">
+            <div class="carousel-fixed-item center middle-indicator">
+                <div class="left">
+                    <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons left  middle-indicator-text">chevron_left</i></a>
+                </div>
+                <div class="right">
+                    <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="material-icons right middle-indicator-text">chevron_right</i></a>
+                </div>
+            </div>
+            <div class="carousel-item" href="#one!">
+                <img src="img/cartel/4.jpg" style="height: 560px;">
+            </div>
+            <div class="carousel-item" href="#two!">
+                <img src="img/cartel/1.jpg" style="height: 560px;">
+            </div>
+            <div class="carousel-item" href="#three!">
+                <img src="img/cartel/7.jpg" style="height: 560px;">
+            </div>
+            <div class="carousel-item" href="#four!">
+                <img src="img/cartel/6.jpg" style="height: 560px;">
+            </div>
         </div>
     </section>
-      
-    
     <div class="separador" style="height: 195px; background-color: purple;">
-            <div class="container">
-                <div class="row">
-                    <div class="col l12" style="margin: 20px;">
-                        <div class="col l4 s4 m4 center-align">
-                            <img src="img/Cartel/20.webp" alt="" style="width: 100px;">
-                            <p style="color: white;" >
-                                Un nuevo compañero de vida
-                            </p>
-                        </div>
-                        <div class="col l4 s4 m4 center-align">
-                            <img src="img/Cartel/p1.png" alt="" style="width: 120px;">
-                            <a class="waves-effect waves-light btn" href="documents/adopta2.html">Adopta a un Perro</a>
-                        </div>
-                        <div class="col l4 s4 m4 center-align">
-                            <img src="img/Cartel/p2.jpg" alt="" style="width: 120px;">
-                            <a class="waves-effect waves-light btn" href="documents/adopta.html">Adopta a un Gato</a>
-                        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col l12" style="margin: 20px;">
+                    <div class="col l4 s4 m4 center-align">
+                        <img src="img/cartel/20.webp" alt="" style="width: 100px;">
+                        <p style="color: white;">Un nuevo compañero de vida</p>
+                    </div>
+                    <div class="col l4 s4 m4 center-align">
+                        <img src="img/cartel/p1.png" alt="" style="width: 120px;">
+                        <a class="waves-effect waves-light btn" href="views/perros.php">Adopta a un Perro</a>
+                    </div>
+                    <div class="col l4 s4 m4 center-align">
+                        <img src="img/cartel/p2.jpg" alt="" style="width: 120px;">
+                        <a class="waves-effect waves-light btn" href="views/gatos.php">Adopta a un Gato</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    
-    </section>
-    <section class="seccion_informativa">
-        <div class="fondo">
-            <div class="row" style="background-color: wheat;">
-                <div class="col l8 s12 m12">
-                    <img class="col s12" src="img/Cartel/5.jpg" alt="" style="margin: 10px;">
-                </div>
-                <div class="col l4 s12">
-                    <div class="container center-align">
-                        <h4>¡Sé parte de la solución!</h4>
-
-                        <div>
-                            <div>
-                                <img src="img/Cartel/i1.png" alt="" style="width: 50px;">
-                            </div>
-                            <a class="waves-effect waves-light btn modal-trigger" style="margin: 20px; width: 150px;" href="#modal1">Infomación</a> 
-                        </div>
-
-                        <div>
-                            <div>
-                                <img src="img/Cartel/i2.png" alt="" style="width: 50px;">
-                            </div>
-                            <a class="waves-effect waves-light btn modal-trigger" style="margin: 20px; width: 150px;"href="#modal2">Contactanos</a>
-                        </div>
-
-                        <div>
-                            <div>
-                                <img src="img/Cartel/i3.png" alt="" style="width: 50px;">
-                            </div>
-                            <a class="waves-effect waves-light btn modal-trigger" style="margin: 20px; width: 150px;" href="#modal3">Requisitos</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="container">
-        <div class="row">
-            <div class="titul center-align" style="height: 50px; background-color: wheat;">
-                <h3>Bienvenidos</h3>
-            </div>
-            <div class="col s12 m6 l12">
-
-                <div class="col s12 l4 ">
-                    <div class="card">
-                        <div class="card-image">
-                        <img class="materialboxed" src="img/Cat/10.jpg" style="width: 293px; height: 300px;">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 l4 ">
-                    <div class="card">
-                        <div class="card-image">
-                        <img class="materialboxed" src="img/Dog/10.jpg" style="width: 293px; height: 300px;">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 l4 ">
-                    <div class="card">
-                        <div class="card-image">
-                        <img  class="materialboxed" src="img/Cat/12.jpg" style="width: 293px; height: 300px;">
-                        </div>
-                    </div>
-                </div>
-                
-            
-            
-                <div class="col s12 l4">
-                    <div class="card">
-                        <div class="card-image">
-                        <img class="materialboxed" src="img/Cat/9.jpg" style="width: 293px; height: 300px;">
-                        </div>
-                    </div>
-                </div>
-
-                <div class=" col s12 l4">
-                    <div class="card">
-                        <div class="card-image">
-                        <img class="materialboxed" src="img/Dog/7.jpg" style="width: 293px; height: 300px;">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col s12 l4">
-                    <div class="card">
-                        <div class="card-image">
-                        <img class="materialboxed" src="img/Cat/8.jpg" style="width: 293px; height: 300px;">
-                        </div>
-                    </div>
-                </div>
-               
             </div>
         </div>
     </div>
-</section>
-
-    
+    </section>
+    <section class="seccion_informativa">
+        <div class="container">
+            <div class="fondo">
+                <div class="row" style="background-color: wheat;  height: 550px;">
+                    <div class="col 8 s8">
+                        <img src="img/cartel/5.jpg" alt="" style="margin-top: 30px; width: 100%; height: 500px;">
+                    </div>
+                    <div class="col l4 s12">
+                        <div class="container center-align">
+                            <h4 style="margin-bottom: 30px;">¡Sé parte de la solución!</h4>
+                            <div>
+                                <div>
+                                    <img src="img/cartel/i1.png" alt="" style="width: 50px;">
+                                </div>
+                                <a class="waves-effect waves-light btn modal-trigger" style="margin: 20px; width: 150px;" href="#modal1">Infomación</a> 
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="img/cartel/i2.png" alt="" style="width: 50px;">
+                                </div>
+                                <a class="waves-effect waves-light btn modal-trigger" style="margin: 20px; width: 150px;"href="#modal2">Contactanos</a>
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="img/cartel/i3.png" alt="" style="width: 50px;">
+                                </div>
+                                <a class="waves-effect waves-light btn modal-trigger" style="margin: 20px; width: 150px;" href="#modal3">Requisitos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="separador" style="height: 100px; background-color: purple;">
+        <div class="center-align">
+            <h3 style="color:white; margin-top: 50px;">Adopciones de Famosos</h3>
+        </div>
+    </div>
+    <section class="seccion_famosos">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l12">
+                    <div class="col s12 l4 ">
+                        <div class="card">
+                            <div class="card-image">
+                            <img class="materialboxed" src="img/famous/fa1.jpg" style="width: 100%; height: 300px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 l4 ">
+                        <div class="card">
+                            <div class="card-image">
+                            <img class="materialboxed" src="img/famous/fa2.jpg" style="width: 100%; height: 300px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 l4 ">
+                        <div class="card">
+                            <div class="card-image">
+                            <img  class="materialboxed" src="img/famous/fa3.jpg" style="width: 100%; height: 300px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 l4">
+                        <div class="card">
+                            <div class="card-image">
+                            <img class="materialboxed" src="img/famous/fa4.png" style="width: 100%; height: 300px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col s12 l4">
+                        <div class="card">
+                            <div class="card-image">
+                            <img class="materialboxed" src="img/famous/fa5.jpg" style="width: 100%; height: 300px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 l4">
+                        <div class="card">
+                            <div class="card-image">
+                            <img class="materialboxed" src="img/famous/fa6.jpg" style="width: 100%; height: 300px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="seccion_footer">
         <footer class="page-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col l3 s12">
+                    <div class="col 4 s4">
                         <h5 class="white-text">Nosotros</h5>
-                        <p class="grey-text text-lighten-4">Empresa sin fines de lucro comprometida con una lavor social y 
+                        <p class="grey-text text-lighten-4" style="text-align: justify;">Empresa sin fines de lucro comprometida con una lavor social y 
                             creando historias motivadoras creando familias. </p>
-                            <li><a class="grey-text text-lighten-3" href="#!">Politicas de Privacidad</a></li>    
                     </div>
-                    <div class="col l3 offset-l2 s6">
+                    <div class="col 2 s2" style="text-align: justify;">
                         <h5 class="white-text">Siguenos</h5>
                         <ul>
                             <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
@@ -190,8 +182,7 @@
                             <li><a class="grey-text text-lighten-3" href="#!">TikTok</a></li>
                         </ul>
                     </div>
-
-                    <div class="col l3 s6">
+                    <div class="col 2 s2" style="text-align: justify;">
                         <h5 class="white-text">Idioma</h5>
                         <ul>
                             <li><a class="grey-text text-lighten-3" href="#!">Español</a></li>
@@ -200,172 +191,235 @@
                             <li><a class="grey-text text-lighten-3" href="#!">Deutsch</a></li>
                         </ul>
                     </div>
-
+                    <div class="col 4 s4" style="text-align: justify;">
+                        <h5 class="white-text">Ubicacion</h5>
+                        <ul>
+                            <iframe _ngcontent-fst-c3="" frameborder="0" height="100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.168286745534!2d-99.17093298526561!3d19.36186458692447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff2a32fb54cd%3A0xc032b9cecdd00867!2sTecnol%C3%B3gico%20Nacional%20De%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1569527710329!5m2!1ses-419!2smx" style="border:0;" width="100%"></iframe> 
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-
-          
-
-
-            
             <div class="footer-copyright">
                 <div class="container">
-                    © 2020 Copyright Text
-                    <a class="grey-text text-lighten-4 right" href="https://www.facebook.com/cesar.guzman.357">Created By</a>
+                    <div class="row">
+                        <div class="col 4 s4">
+                            © 2020 Copyright
+                        </div>
+                        <div class="col 4 s4 center">
+                            <a class="grey-text text-lighten-3" href="#!">Politicas de Privacidad</a>  
+                        </div>
+                        <div class="col 4 s4">
+                            <a class="grey-text text-lighten-4 right" href="https://www.facebook.com/cesar.guzman.357">Created By</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
     </section>
-
-
- <!-- Modal Structure -->
- <div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>REFUGIO ANIMAL</h4>
-        <p>Empresa sin fines de lucro comprometida con una lavor social y 
-            creando historias motivadoras creando familias.<br/><br/>
-            *Adopta<br/>
-            *Esteriliza<br/>
-            *Ayuda
-            </p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-    </div>
-
-     <!-- Modal Structure -->
- <div id="modal2" class="modal">
-    <div class="modal-content">
-
-        <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                  <span class="helper-text" data-error="wrong" data-success="right">TE ENVIAREMOS LA INFORMACION POR CORREO</span>
-                  <div class="card-panel teal">
-                    <span class="white-text">
-                        1. Whatsapp: 44220072278 <br/><br/>
-                        2. Facebook: Catlander <br/><br/>
-                        3. Instagram: @CatLander <br/><br/>
-                        4. Correo: Cat_Land_Der@gmail.com<br/><br/>
-                        5. Dirección: Av.Villa Raiz #232  <br/><br/>
-                        6. YouTube: CatLanderChanel
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-                
-        
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-    </div>
-
-
-
-<!-- Modal Structure -->
-<div id="modal3" class="modal">
-    <div class="modal-content">
-        <div class="row">
-            <div class="col l12 s12 m5">
-              <div class="card-panel teal">
-                <span class="white-text">
-                    1. Identificación <br/>
-                    2. Fotos del Hogar <br/>
-                    3. Responsiva <br/>
-                    4. Comprobante de domicilio<br/>
-                    5. Referencias <br/>
-                    6. Se ara una visita asi como una entrevista sobre la capacidad para mantener al animal.
-                </span>
-              </div>
+    <section id="modales">
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>REFUGIO ANIMAL</h4>
+                <p>Empresa sin fines de lucro comprometida con una lavor social y 
+                    creando historias motivadoras creando familias.<br/><br/>
+                    *Adopta<br/>
+                    *Esteriliza<br/>
+                    *Ayuda
+                </p>
             </div>
-          </div>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-    </div>
-
-
-    <div id="modalEs" class="modal">
-        <div class="modal-content">
-
-            <title>Formulario de Contacto</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-	<section class="container">
-		<div class="row">
-		<h3 class="center-align">Agenda Cita</h3>
-			<article class="col s6 offset-s3">
-				<form method="POST" action="formulario-contacto.php">
-					<div class="input-field">
-						<i class="material-icons prefix">perm_identity</i>
-						<label for="nombre">Nombre</label>
-						<input type="text" name="nombre" required>
-					</div>
-
-					<div class="input-field">
-						<i class="material-icons prefix">person_pin</i>
-						<label for="apellido">Apellido</label>
-						<input type="text" name="apellido" required>
-					</div>
-					
-					<div class="input-field">
-						<i class="material-icons prefix">email</i>
-						<label for="email">Email</label>
-						<input type="email" name="email" required>
-					</div>
-
-					<div class="input-field">
-						<i class="material-icons prefix">mode_edit</i>
-						<label for="mensaje">Mensaje</label>
-						<textarea name="mensaje" id="" rows="10" class="materialize-textarea"  length="140" required></textarea>
-					</div>
-					
-					<p class="center-align">
-						<button class="waves-effect waves-light btn" type="submit"><i class="material-icons right">send</i>enviar</button>
-					</p>
-
-				</form>
-
-			</article>
-		</div>
-	</section>
-
-            
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
         </div>
 
+        <!-- Modal Structure -->
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                                <span class="helper-text" data-error="wrong" data-success="right">TE ENVIAREMOS LA INFORMACION POR CORREO</span>
+                                <div class="card-panel teal">
+                                    <span class="white-text">
+                                        1. Whatsapp: 44220072278 <br/><br/>
+                                        2. Facebook: catlander <br/><br/>
+                                        3. Instagram: @catLander <br/><br/>
+                                        4. Correo: cat_Land_Der@gmail.com<br/><br/>
+                                        5. Dirección: Av.Villa Raiz #232  <br/><br/>
+                                        6. YouTube: catLanderChanel
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
 
+        <!-- Modal Structure -->
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col l12 s12 m5">
+                        <div class="card-panel teal">
+                            <span class="white-text">
+                                1. Identificación <br/>
+                                2. Fotos del Hogar <br/>
+                                3. Responsiva <br/>
+                                4. Comprobante de domicilio<br/>
+                                5. Referencias <br/>
+                                6. Se ara una visita asi como una entrevista sobre la capacidad para mantener al animal.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
 
+        <!-- Modal Structure -->
+        <div id="modalEs" class="modal" style="height: 500px;">
+            <div class="modal-content" style="height: 200px;">
+                <div style="text-align: right;">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+                </div>
+                <title>Formulario de Contacto</title>
+                <section class="container">
+                    <div class="row">
+                        <h4 class="center-align">Agenda Cita</h4>
+                        <form method="POST" action="formulario-contacto.php">
+                            <div class="row">
+                                <div class="col 6 s6">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">perm_identity</i>
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" name="nombre" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">email</i>
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">mode_edit</i>
+                                        <label for="tipo">Tipo de Mascota</label>
+                                        <input type="text" name="tipo" required>
+                                    </div>
+                                </div>
+                                <div class="col 6 s6">
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">person_pin</i>
+                                        <label for="apellido">Apellido</label>
+                                        <input type="text" name="apellido" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">phone</i>
+                                        <label for="phone">Telefono</label>
+                                        <input type="text" name="phone" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">perm_contact_calendar</i>
+                                        <label for="cita">Cita</label>
+                                        <input type="text" name="cita"class="datepicker">
+                                    </div>
+                                </div> 
+                            </div>
+                            <p class="center-align">
+                                <button class="waves-effect waves-light btn" type="submit"><i class="material-icons right">send</i>enviar</button>
+                            </p>
+                        </form>
+                    </div>
+                </section>
+            </div>  
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="js/materialize.js"></script>
     <script>
-        $('.carousel.carousel-slider').carousel({
-            fullWidth: true,
-            indicators: true
-        });
-        $('.carousel').carousel();
-
         $(document).ready(function(){
+            $('.carousel.carousel-slider').carousel({
+                fullWidth: true,
+                indicators: false
+            }, setTimeout(autoplay, 4500));
+            
+            function autoplay() {
+                $('.carousel').carousel('next');
+                setTimeout(autoplay, 4500);
+            }
+
+            // move next carousel
+            $('.moveNextCarousel').click(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                $('.carousel').carousel('next');
+            });
+
+            // move prev carousel
+            $('.movePrevCarousel').click(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                $('.carousel').carousel('prev');
+            });
+
+            $('.materialboxed').materialbox();
+
             $('.modal').modal();
+
+            $('.datepicker').datepicker({
+                container: 'body',
+                format: "dd/mm/yyyy",  
+            });
+
+            $(".dropdown-trigger").dropdown();
         });
-
-        src="https://code.jquery.com/jquery-2.1.4.min.js"
-        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"
-
-        $(".dropdown-trigger").dropdown();
+    </script>
+    <!-- Code injected by live-server -->
+    <script type="text/javascript">
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
     </script>
 </body>
-
 </html>
