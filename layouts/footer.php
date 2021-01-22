@@ -2,12 +2,14 @@
         <footer class="page-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col 4 s4">
+                    <div class="col s12 m4 xl4">
                         <h5 class="white-text">Nosotros</h5>
-                        <p class="grey-text text-lighten-4" style="text-align: justify;">Empresa sin fines de lucro comprometida con una lavor social y 
-                            creando historias motivadoras creando familias. </p>
+                        <p class="grey-text text-lighten-4" style="text-align: justify;">
+                            Empresa sin fines de lucro comprometida con una lavor social y 
+                            creando historias motivadoras creando familias. 
+                        </p>
                     </div>
-                    <div class="col 2 s2" style="text-align: justify;">
+                    <div class="col s12 m2 l2 xl2" style="text-align: justify;">
                         <h5 class="white-text">Siguenos</h5>
                         <ul>
                             <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
@@ -16,7 +18,7 @@
                             <li><a class="grey-text text-lighten-3" href="#!">TikTok</a></li>
                         </ul>
                     </div>
-                    <div class="col 2 s2" style="text-align: justify;">
+                    <div class="col s12 m2 l2 xl2" style="text-align: justify;">
                         <h5 class="white-text">Idioma</h5>
                         <ul>
                             <li><a class="grey-text text-lighten-3" href="#!">Español</a></li>
@@ -25,7 +27,7 @@
                             <li><a class="grey-text text-lighten-3" href="#!">Deutsch</a></li>
                         </ul>
                     </div>
-                    <div class="col 4 s4" style="text-align: justify;">
+                    <div class="col s12 m4 l4 xl4" style="text-align: justify;">
                         <h5 class="white-text">Ubicacion</h5>
                         <ul>
                             <iframe _ngcontent-fst-c3="" frameborder="0" height="100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.168286745534!2d-99.17093298526561!3d19.36186458692447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff2a32fb54cd%3A0xc032b9cecdd00867!2sTecnol%C3%B3gico%20Nacional%20De%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1569527710329!5m2!1ses-419!2smx" style="border:0;" width="100%"></iframe> 
@@ -36,13 +38,13 @@
             <div class="footer-copyright">
                 <div class="container">
                     <div class="row">
-                        <div class="col 4 s4">
+                        <div class="col s4">
                             © 2020 Copyright
                         </div>
-                        <div class="col 4 s4 center">
+                        <div class="col s4 center">
                             <a class="grey-text text-lighten-3" href="#!">Politicas de Privacidad</a>  
                         </div>
-                        <div class="col 4 s4">
+                        <div class="col s4">
                             <a class="grey-text text-lighten-4 right" href="https://www.facebook.com/cesar.guzman.357">Created By</a>
                         </div>
                     </div>
@@ -62,7 +64,7 @@
                         <h4 class="center-align">Agenda Cita</h4>
                         <form method="POST" action="formulario-contacto.php">
                             <div class="row">
-                                <div class="col 6 s6">
+                                <div class="col s12 m6 l6 xl6">
                                     <div class="input-field">
                                         <i class="material-icons prefix">perm_identity</i>
                                         <label for="nombre">Nombre</label>
@@ -79,7 +81,7 @@
                                         <input type="text" name="tipo" required>
                                     </div>
                                 </div>
-                                <div class="col 6 s6">
+                                <div class="col s12 m6 l6 xl6">
                                     <div class="input-field">
                                         <i class="material-icons prefix">person_pin</i>
                                         <label for="apellido">Apellido</label>

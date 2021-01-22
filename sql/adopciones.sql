@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-01-2021 a las 10:06:40
+-- Tiempo de generación: 22-01-2021 a las 06:35:07
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `adopciones`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `histrorias`
+--
+
+CREATE TABLE `histrorias` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `historia` varchar(150) NOT NULL,
+  `imagen` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `histrorias`
+--
+
+INSERT INTO `histrorias` (`id`, `nombre`, `historia`, `imagen`) VALUES
+(1, 'Max', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione cum dolore in libero at doloremque ipsam magni? Sit eum natus, minus corrupti in ips', '1.jpg'),
+(2, 'Roro', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione cum dolore in libero at doloremque ipsam magni? Sit eum natus, minus corrupti in ips', '2.jpg'),
+(3, 'Chimuelo', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione cum dolore in libero at doloremque ipsam magni? Sit eum natus, minus corrupti in ips', '3.jpg'),
+(4, 'Estrella', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione cum dolore in libero at doloremque ipsam magni? Sit eum natus, minus corrupti in ips', '4.jpg');
 
 -- --------------------------------------------------------
 
@@ -79,6 +102,12 @@ INSERT INTO `mascotas` (`id`, `nombre`, `nota`, `sexo`, `edad`, `tipo`, `imagen`
 --
 
 --
+-- Indices de la tabla `histrorias`
+--
+ALTER TABLE `histrorias`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `mascotas`
 --
 ALTER TABLE `mascotas`
@@ -87,6 +116,12 @@ ALTER TABLE `mascotas`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `histrorias`
+--
+ALTER TABLE `histrorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `mascotas`

@@ -12,10 +12,10 @@
                             $resultado = $conexion -> query( "select * from mascotas where tipo = 'Gato'") or die($conexion -> error);
                         ?>
                         <?php while($fila = mysqli_fetch_array($resultado)) { ?>
-                            <div class="col s12 m6 l4">
+                            <div class="col s12 m6 l6 xl4">
                                 <div class="card">
-                                    <div class="card-image" style="width: 293px; height: 300px;" >
-                                        <img src="../img/pet/<?php echo $fila['imagen'];?>" style="width: 293px; height: 300px;">
+                                    <div class="card-image">
+                                        <img src="../img/pet/<?php echo $fila['imagen'];?>" style="width: 100%; height: 300px;">
                                         <span class="card-title" style="color: white; font-weight: bold;"><?php echo $fila['nombre']?></span>
                                     </div>
                                     <div class="card-content" style="height: 150px;">

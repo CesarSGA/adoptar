@@ -72,7 +72,7 @@
         <div class="row" ">
             <div class="col s12">
                 <div class="container" style="margin-top: 20px;">
-                    <table class="responsive-table centered" style="background-color: white;">
+                    <table class="centered col s12 m12 l12 xl12" style="background-color: white;">
                         <thead>
                             <tr>
                                 <th>Imagen</th>
