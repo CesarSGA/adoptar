@@ -35,9 +35,13 @@
                                     <p>Edad: <?php echo $fila[4];?>.</p>
                                     <p>Tipo: <?php echo $fila[5];?>.</p>
                                 </div>
+                                <?php
+                                    if($fila[7] == 1) {
+                                ?>
                                 <div class="card-action center">
                                     <a class="waves-effect waves-light btn modal-trigger" href="cart.php?id=<?php echo $fila[0];?>">Agregar a mis Adopciones</a>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>     
                         <?php mysqli_close($conexion); ?>

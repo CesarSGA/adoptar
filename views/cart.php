@@ -66,7 +66,7 @@
 ?>
 
 <?php include('../layouts/header.php'); ?>
-<title>Mis Mascotas</title>
+<title>Carrito</title>
 <section>
     <div class="fondo">
         <div class="row" ">
@@ -93,9 +93,23 @@
                                 <td><?php echo $arregloCarrito[$i]['Tipo'];?></td>
                                 <td><a href='#' class="waves-effect waves-light btn btnEliminar" data-id="<?php echo $arregloCarrito[$i]['Id'];?>">X</a></td>
                             </tr>
-                            <?php } } mysqli_close($conexion); ?>
+                            <?php } }; ?>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="col s12" style="margin-top: 20px;">
+                <div class="container">
+                    <?php
+                        if(isset($_SESSION['carrito']) && $_SESSION['carrito'] != 0) {
+                    ?>
+                    <div class="right">
+                        <a class="waves-effect waves-light btn modal-trigger" href="checkout.php">Adorptar</a>
+                    </div>
+                    <?php }  mysqli_close($conexion); ?>
+                    <div class="left">
+                        <a class="waves-effect waves-light btn modal-trigger" href="my_adoptions.php">Mis Adopciones</a>
+                    </div>
                 </div>
             </div>
         </div>

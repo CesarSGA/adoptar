@@ -9,7 +9,7 @@
                     <div class="row">
                         <?php
                             include('../server/conexion.php');
-                            $resultado = $conexion -> query( "select * from histrorias") or die($conexion -> error);
+                            $resultado = $conexion -> query( "select * from historias") or die($conexion -> error);
                         ?>
                         <?php while($fila = mysqli_fetch_array($resultado)) { ?>
                             <div class="col s12 m6 l6 xl6">
