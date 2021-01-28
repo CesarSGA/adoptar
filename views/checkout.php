@@ -1,19 +1,31 @@
 <?php 
-    session_start();
-    
-    if(!isset($_SESSION['carrito'])){
-        header('Location: ../index.html');
-    }
-    
-    $arreglo = $_SESSION['carrito'];
-    
-    include('../server/conexion.php');
-    
-    $resultado = $conexion -> query( "select * from usuarios where id = 1") or die($conexion -> error);
-    if(mysqli_num_rows($resultado) > 0) {
-        $fila = mysqli_fetch_row($resultado);
+
+    include_once '../server/user/user.php';
+    include_once '../server/user/user_session.php';
+
+    $userSession = new UserSession();
+    $user = new User();
+
+    if(isset($_SESSION['user'])){
+        $user->setUser($userSession->getCurrentUser());
+        $id_user = $user->getId();
+
+        if(!isset($_SESSION['carrito'])){
+            header('Location: ../index.html');
+        }
+        
+        $arreglo = $_SESSION['carrito'];
+        
+        include('../server/conexion.php');
+        
+        $resultado = $conexion -> query( "select * from usuarios where id = $id_user") or die($conexion -> error);
+        if(mysqli_num_rows($resultado) > 0) {
+            $fila = mysqli_fetch_row($resultado);
+        } else {
+            header("Location: ../index.html");
+        }
     } else {
-        header("Location: ../index.html");
+		header("location: ../index.html");
     }
 ?>
 <?php include('../layouts/header.php'); ?>

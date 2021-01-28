@@ -1,4 +1,17 @@
-<?php session_start();?>
+<?php 
+    include_once '../server/user/user.php';
+    include_once '../server/user/user_session.php';
+
+    $userSession = new UserSession();
+    $user = new User();
+
+    if(isset($_SESSION['user'])){
+        $user->setUser($userSession->getCurrentUser());
+        $id_user = $user->getId();
+    } else {
+		header("location: ../index.html");
+    }
+?>
 <?php include('../layouts/header.php'); ?>
 <title>Mis Adopciones</title>
 <section>
@@ -18,7 +31,7 @@
                         <tbody>
                             <?php
                                 include('../server/conexion.php');
-                                $resultado = $conexion -> query( "select * from adopciones where id_user = 1") or die($conexion -> error);
+                                $resultado = $conexion -> query( "select * from adopciones where id_user = $id_user") or die($conexion -> error);
                             ?>
                             <?php 
                                 while($fila = mysqli_fetch_array($resultado)) { 
@@ -27,9 +40,11 @@
                                         'Id' => $id
                                     );
                                 }
-                                for($i=0; $i<count($arreglo); $i++){
-                                    $resultado = $conexion -> query( "select * from mascotas where id =".$arreglo[$i]['Id']) or die($conexion -> error);
-                                    while($fila = mysqli_fetch_array($resultado)) {
+
+                                if(isset($arreglo) && $arreglo != 0) {
+                                    for($i=0; $i<count($arreglo); $i++){
+                                        $resultado = $conexion -> query( "select * from mascotas where id =".$arreglo[$i]['Id']) or die($conexion -> error);
+                                        while($fila = mysqli_fetch_array($resultado)) {
                             ?>
                             <tr>
                                 <td><img src="../img/pet/<?php echo $fila['imagen'];?>" style="width: 100px; height: 100px;"></td>
@@ -37,7 +52,7 @@
                                 <td><?php echo $fila['tipo'];?></td>
                                 <td><a class="waves-effect waves-light btn modal-trigger" href="pet_details.php?id=<?php echo $fila['id'];?>">Ver</a></td>
                             </tr>
-                            <?php } } mysqli_close($conexion); ?>
+                            <?php } } } mysqli_close($conexion); ?>
                         </tbody>
                     </table>
                 </div>

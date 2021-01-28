@@ -1,75 +1,94 @@
 <?php
-    session_start();
     include '../server/conexion.php';
-    if(isset($_SESSION['carrito'])) {
-        // Si existe buscamos si ya estaba agregado esa mascota
-        if(isset($_GET['id'])) {
-            $arreglo = $_SESSION['carrito'];
-            $encontro = false;
-            $numero = 0;
-            for($i=0; $i<count($arreglo); $i++) {
-                if($arreglo[$i]['Id'] == $_GET['id']) {
-                    $encontro = true;
-                    $numero = $i;
+    include_once '../server/user/user.php';
+    include_once '../server/user/user_session.php';
+
+    $userSession = new UserSession();
+    $user = new User();
+
+    if(isset($_SESSION['user'])){
+        $user->setUser($userSession->getCurrentUser());
+        $id_user = $user->getId();
+
+        if(isset($_SESSION['carrito'])) {
+            // Si existe buscamos si ya estaba agregado esa mascota
+            if(isset($_GET['id'])) {
+                $arreglo = $_SESSION['carrito'];
+                $encontro = false;
+                $numero = 0;
+                for($i=0; $i<count($arreglo); $i++) {
+                    if($arreglo[$i]['Id'] == $_GET['id']) {
+                        $encontro = true;
+                        $numero = $i;
+                    }
+                }
+                if($encontro == true) {
+                    $arreglo[$numero]['Cantidad'] = 1;
+                    $_SESSION['carrito'] = $arreglo;
+                    header("Location: ./cart.php");
+                } else {
+                    // No estaba el registro
+                    $imagen = "";
+                    $nombre = "";
+                    $tipo = "";
+                    $resultado = $conexion -> query( "select * from mascotas where id =" .$_GET['id']) or die($conexion -> error);
+                    $fila = mysqli_fetch_row($resultado);
+                    
+                    $imagen = $fila[6];
+                    $nombre = $fila[1];
+                    $tipo = $fila[5];
+                    $arregloNuevo = array(
+                        'Id' => $_GET['id'],
+                        'Imagen' => $imagen,
+                        'Nombre' => $nombre,
+                        'Tipo' => $tipo,
+                        'Cantidad' => 1
+                    );
+                    array_push($arreglo, $arregloNuevo);
+                    $_SESSION['carrito'] = $arreglo;
+                    header("Location: ./cart.php");
                 }
             }
-            if($encontro == true) {
-                $arreglo[$numero]['Cantidad'] = 1;
-                $_SESSION['carrito'] = $arreglo;
-                header("Location: ./cart.php");
-            } else {
-                // No estaba el registro
-                $imagen = "";
+        } else {
+            // Creamos la variable de sesion
+            if(isset($_GET['id'])) {
                 $nombre = "";
                 $tipo = "";
-                $resultado = $conexion -> query( "select * from mascotas where id =" .$_GET['id']) or die($conexion -> error);
-                $fila = mysqli_fetch_row($resultado);
+                $imagen = "";
+                $res = $conexion -> query( "select * from mascotas where id =" .$_GET['id']) or die($conexion -> error);
+                $fila = mysqli_fetch_row($res);
                 
-                $imagen = $fila[6];
                 $nombre = $fila[1];
                 $tipo = $fila[5];
-                $arregloNuevo = array(
+                $imagen = $fila[6];
+                $arreglo[] = array(
                     'Id' => $_GET['id'],
-                    'Imagen' => $imagen,
                     'Nombre' => $nombre,
                     'Tipo' => $tipo,
+                    'Imagen' => $imagen,
                     'Cantidad' => 1
                 );
-                array_push($arreglo, $arregloNuevo);
                 $_SESSION['carrito'] = $arreglo;
                 header("Location: ./cart.php");
             }
         }
     } else {
-        // Creamos la variable de sesion
-        if(isset($_GET['id'])) {
-            $nombre = "";
-            $tipo = "";
-            $imagen = "";
-            $res = $conexion -> query( "select * from mascotas where id =" .$_GET['id']) or die($conexion -> error);
-            $fila = mysqli_fetch_row($res);
-            
-            $nombre = $fila[1];
-            $tipo = $fila[5];
-            $imagen = $fila[6];
-            $arreglo[] = array(
-                'Id' => $_GET['id'],
-                'Nombre' => $nombre,
-                'Tipo' => $tipo,
-                'Imagen' => $imagen,
-                'Cantidad' => 1
-            );
-            $_SESSION['carrito'] = $arreglo;
-            header("Location: ./cart.php");
-        }
+		header("location: login.php");
     }
+    
+    include('../layouts/header.php');
 ?>
-
-<?php include('../layouts/header.php'); ?>
 <title>Carrito</title>
 <section>
     <div class="fondo">
         <div class="row" ">
+            <div class="col s12" style="margin-top: 20px;">
+                <div class="container">
+                    <div class="left">
+                        <a class="waves-effect waves-light btn modal-trigger" href="my_adoptions.php">Mis Adopciones</a>
+                    </div>
+                </div>
+            </div>
             <div class="col s12">
                 <div class="container" style="margin-top: 20px;">
                     <table class="centered col s12 m12 l12 xl12" style="background-color: white;">
@@ -107,9 +126,6 @@
                         <a class="waves-effect waves-light btn modal-trigger" href="checkout.php">Adorptar</a>
                     </div>
                     <?php }  mysqli_close($conexion); ?>
-                    <div class="left">
-                        <a class="waves-effect waves-light btn modal-trigger" href="my_adoptions.php">Mis Adopciones</a>
-                    </div>
                 </div>
             </div>
         </div>

@@ -1,21 +1,33 @@
 <?php 
-    session_start();
-    include('../server/conexion.php');
-    
-    if(!isset($_SESSION['carrito'])){
-        header('Location: ../index.html');
-    }
-    
-    $arreglo = $_SESSION['carrito'];
-    $tiempo = new \DateTime();
-    $fecha = $tiempo->format('Y-m-d');
+    include_once '../server/user/user.php';
+    include_once '../server/user/user_session.php';
 
-    for($i=0; $i<count($arreglo); $i++){
-        $id_pet = $arreglo[$i]['Id'];
-        $conexion -> query( "UPDATE `mascotas` SET `estatus` = '0' WHERE `mascotas`.`id` = $id_pet;") or die($conexion -> error);
-        $conexion -> query( "insert into adopciones(id_user, id_pet, date) values(1,$id_pet,$fecha)") or die($conexion -> error);
+    $userSession = new UserSession();
+    $user = new User();
+
+    if(isset($_SESSION['user'])){
+        $user->setUser($userSession->getCurrentUser());
+        $id_user = $user->getId();
+
+        include('../server/conexion.php');
+    
+        if(!isset($_SESSION['carrito'])){
+            header('Location: ../index.html');
+        }
+        
+        $arreglo = $_SESSION['carrito'];
+        $tiempo = new \DateTime();
+        $fecha = $tiempo->format('Y-m-d');
+
+        for($i=0; $i<count($arreglo); $i++){
+            $id_pet = $arreglo[$i]['Id'];
+            $conexion -> query( "UPDATE `mascotas` SET `estatus` = '0' WHERE `mascotas`.`id` = $id_pet;") or die($conexion -> error);
+            $conexion -> query( "insert into adopciones(id_user, id_pet, date) values($id_user,$id_pet,$fecha)") or die($conexion -> error);
+        }
+        unset($_SESSION['carrito']);
+    } else {
+        header("location: ../index.html");
     }
-    unset($_SESSION['carrito']);
 ?>
 <?php include('../layouts/header.php'); ?>
 <title>Gracias</title>
