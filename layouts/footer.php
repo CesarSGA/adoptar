@@ -119,7 +119,7 @@
                                     </div>
                                     <script type="text/javascript">
                                         var f6 = new LiveValidation('appointment');
-                                        f6.add(Validate.Presence, , {failureMessage: "Escribir por favor tu Fecha de Cita!!!"});
+                                        f6.add(Validate.Presence, {failureMessage: "Escribir por favor tu Fecha de Cita!!!"});
                                     </script>
                                 </div> 
                             </div>
