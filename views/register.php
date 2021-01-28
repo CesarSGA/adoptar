@@ -11,7 +11,7 @@
                         <div class="col s12 m12 l12 xl12" style="background-color: white;">
                             <div class="container" >
                                 <h4 class="center-align">Registro de Usuario</h4>
-                                <form action="login.php" method="POST" id="form">
+                                <form method="POST" id="form">
                                     <div class="row">
                                         <div class="col s12 m6 l6 xl6">                                            
                                             <div class="input-field">

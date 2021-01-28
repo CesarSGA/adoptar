@@ -14,6 +14,8 @@
    <!-- <link rel="stylesheet" href="css/materialize.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="../js/livevalidation_standalone.compressed.js"></script>
 </head>
 <body style="background-color: wheat;">
     <section>

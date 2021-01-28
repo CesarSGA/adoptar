@@ -62,45 +62,69 @@
                 <section class="container">
                     <div class="row">
                         <h4 class="center-align">Agenda Cita</h4>
-                        <form method="POST" action="formulario-contacto.php">
+                        <form method="POST" id="form">
                             <div class="row">
                                 <div class="col s12 m6 l6 xl6">
                                     <div class="input-field">
                                         <i class="material-icons prefix">perm_identity</i>
-                                        <label for="nombre">Nombre</label>
-                                        <input type="text" name="nombre" required>
+                                        <label for="name" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="name" name="name" aria-describedby="name" required>
                                     </div>
+                                    <script type="text/javascript">
+                                        var f1 = new LiveValidation('name');
+                                        f1.add(Validate.Presence, {failureMessage: "Escribir por favor tu Login!!!"});
+                                    </script>
                                     <div class="input-field">
                                         <i class="material-icons prefix">email</i>
-                                        <label for="email">Email</label>
-                                        <input type="email" name="email" required>
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text" class="form-control" id="email" aria-describedby="email" required>
                                     </div>
+                                    <script type="text/javascript">
+                                        var f2 = new LiveValidation('email');
+                                        f2.add(Validate.Email);
+                                    </script>
                                     <div class="input-field">
                                         <i class="material-icons prefix">mode_edit</i>
-                                        <label for="tipo">Tipo de Mascota</label>
-                                        <input type="text" name="tipo" required>
+                                        <label for="type" class="form-label">Tipo de Mascota</label>
+                                        <input type="text" class="form-control" id="type" name="type" aria-describedby="type" required>
                                     </div>
+                                    <script type="text/javascript">
+                                        var f3 = new LiveValidation('type');
+                                        f3.add(Validate.Presence, {failureMessage: "Escribir por favor tu Tipo de Mascota!!!"});
+                                    </script>
                                 </div>
                                 <div class="col s12 m6 l6 xl6">
                                     <div class="input-field">
                                         <i class="material-icons prefix">person_pin</i>
-                                        <label for="apellido">Apellido</label>
-                                        <input type="text" name="apellido" required>
+                                        <label for="lastname" class="form-label">Apellido</label>
+                                        <input type="text" class="form-control" id="lastname" name="lastname" aria-describedby="lastname" required>
                                     </div>
+                                    <script type="text/javascript">
+                                        var f4 = new LiveValidation('lastname');
+                                        f4.add(Validate.Presence, {failureMessage: "Escribir por favor tu Apellido!!!"});
+                                    </script>
                                     <div class="input-field">
                                         <i class="material-icons prefix">phone</i>
-                                        <label for="phone">Telefono</label>
-                                        <input type="text" name="phone" required>
+                                        <label for="phone" class="form-label">Telefono</label>
+                                        <input type="text" class="form-control" id="phone" name="phone" aria-describedby="phone" required>
                                     </div>
+                                    <script type="text/javascript">
+                                        var f5 = new LiveValidation('phone');
+                                        f5.add(Validate.Presence, {failureMessage: "Escribir por favor tu Telefono!!!"});
+                                    </script>
                                     <div class="input-field">
                                         <i class="material-icons prefix">perm_contact_calendar</i>
-                                        <label for="cita">Cita</label>
-                                        <input type="text" name="cita"class="datepicker">
+                                        <label for="appointment" class="form-label">Cita</label>
+                                        <input type="text" class="datepicker form-control" id="appointment" name="appointment" aria-describedby="appointment" required>
                                     </div>
+                                    <script type="text/javascript">
+                                        var f6 = new LiveValidation('appointment');
+                                        f6.add(Validate.Presence, , {failureMessage: "Escribir por favor tu Fecha de Cita!!!"});
+                                    </script>
                                 </div> 
                             </div>
                             <p class="center-align">
-                                <button class="waves-effect waves-light btn" type="submit"><i class="material-icons right">send</i>enviar</button>
+                                <button class="waves-effect waves-light btn" type="submit">agendar</button>
                             </p>
                         </form>
                     </div>
@@ -116,7 +140,7 @@
             $('.modal').modal();
             $('.datepicker').datepicker({
                 container: 'body',
-                format: "dd/mm/yyyy",  
+                format: "yyyy/mm/dd",  
             });
             $(".dropdown-trigger").dropdown();
         });
@@ -159,5 +183,23 @@
         }
         // ]]>
     </script>
+    <script>
+    const form = document.getElementById("form")
+    form.addEventListener("submit", e => {
+        e.preventDefault()
+        const name = document.getElementById("name").value
+        const lastname = document.getElementById("lastname").value
+        const email = document.getElementById("email").value
+        const phone = document.getElementById("phone").value
+        const type = document.getElementById("type").value
+        const appointment = document.getElementById("appointment").value
+        axios.post("../server/cita.php", {name, lastname, email, phone, type, appointment}).then(response => {
+            if(response){
+                alert("Cita Agendada Corectamente, nos pondremos en contacto a la brevedad.");
+                location.reload();
+            }
+        })
+    })
+</script>
 </body>
 </html>
