@@ -21,8 +21,9 @@
             <nav>
                 <div class="container" >
                     <div class="nav-wrapper">
-                        <a href="./index.html" class="brand-logo left"><i class="material-icons">child_friendly</i>PETTING</a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <a href="./index.html" class="brand-logo"><i class="material-icons">child_friendly</i>PETTING</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
                             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Adopta<i class="material-icons right">arrow_drop_down</i></a></li>
                             <li><a href="views/stories.php">Historias</a></li>
                             <li><a class="modal-trigger" href="#modalEs">Esteriliza</a></li>
@@ -32,6 +33,11 @@
             </nav>
         </div>
     </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Adopta<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a href="views/stories.php">Historias</a></li>
+        <li><a class="modal-trigger" href="#modalEs">Esteriliza</a></li>
+    </ul>
     <div class="seccion_carousel col s12 m12 l12 xl12">
         <div class="carousel carousel-slider center " data-indicators="true">
             <div class="carousel-fixed-item center middle-indicator">
@@ -384,6 +390,8 @@
     <script src="js/materialize.js"></script>
     <script>
         $(document).ready(function(){
+            $('.sidenav').sidenav();
+
             $('.carousel.carousel-slider').carousel({
                 fullWidth: true,
                 indicators: false

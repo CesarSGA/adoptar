@@ -137,6 +137,7 @@
     <script src="../js/materialize.js"></script>
     <script>
         $(document).ready(function(){
+            $('.sidenav').sidenav();
             $('.modal').modal();
             $('.datepicker').datepicker({
                 container: 'body',
