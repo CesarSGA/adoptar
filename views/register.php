@@ -36,7 +36,8 @@
                                             </div>
                                             <script type="text/javascript">
                                                 var f5 = new LiveValidation('rfc');
-                                                f5.add(Validate.Presence, {failureMessage: "Escribir por favor tu RFC!!!"});
+                                                f5.add(Validate.Format, {pattern: /^[a-zA-Z]{3,4}(\d{6})((\D|\d){2,3})?$/, failureMessage: "Escribir por favor tu RFC!!!"});
+                                                f5.add(Validate.Length, {minimum: 12, maximum: 12});
                                             </script>
                                             <div class="input-field">
                                                 <label for="emailRegister" class="form-label">Correo electronico</label>
@@ -63,7 +64,8 @@
                                             </div>
                                             <script type="text/javascript">
                                                 var f4 = new LiveValidation('curp');
-                                                f4.add(Validate.Presence, {failureMessage: "Escribir por favor tu CURP!!!"});
+                                                f4.add(Validate.Presence, {failureMessage: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/, failureMessage: "Escribir por favor tu CURP!!!"});
+                                                f4.add(Validate.Length, {minimum: 18, maximum: 18});
                                             </script>
                                             <div class="input-field">
                                                 <label for="address" class="form-label">Dirección</label>
@@ -105,7 +107,7 @@
         const curp = document.getElementById("curp").value
         const rfc = document.getElementById("rfc").value
         const address = document.getElementById("address").value
-        const email = document.getElementById("email").value
+        const email = document.getElementById("emailRegister").value
         const capcha = document.getElementById("capcha").value
         axios.post("../server/registro.php", {login, password, name, curp, rfc, address, email, capcha}).then(response => {
             if(response){
