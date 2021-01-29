@@ -11,7 +11,7 @@
                         <div class="col s12 m12 l12 xl12" style="background-color: white;">
                             <div class="container" >
                                 <h4 class="center-align">Registro de Usuario</h4>
-                                <form method="POST" id="form">
+                                <form method="POST" id="formRegister">
                                     <div class="row">
                                         <div class="col s12 m6 l6 xl6">                                            
                                             <div class="input-field">
@@ -23,11 +23,11 @@
                                                 f1.add(Validate.Presence, {failureMessage: "Escribir por favor tu Login!!!"});
                                             </script>
                                             <div class="input-field">
-                                                <label for="name" class="form-label">Nombre Completo</label>
-                                                <input type="text" class="form-control" id="name" aria-describedby="name">
+                                                <label for="nameRegister" class="form-label">Nombre Completo</label>
+                                                <input type="text" class="form-control" id="nameRegister" aria-describedby="nameRegister">
                                             </div>
                                             <script type="text/javascript">
-                                                var f3 = new LiveValidation('name');
+                                                var f3 = new LiveValidation('nameRegister');
                                                 f3.add(Validate.Presence, {failureMessage: "Escribir por favor tu Nombre!!!"});
                                             </script>
                                             <div class="input-field">
@@ -39,11 +39,11 @@
                                                 f5.add(Validate.Presence, {failureMessage: "Escribir por favor tu RFC!!!"});
                                             </script>
                                             <div class="input-field">
-                                                <label for="email" class="form-label">Correo electronico</label>
-                                                <input type="text" class="form-control" id="email" aria-describedby="email" required>
+                                                <label for="emailRegister" class="form-label">Correo electronico</label>
+                                                <input type="text" class="form-control" id="emailRegister" aria-describedby="emailRegister" required>
                                             </div>
                                             <script type="text/javascript">
-                                                var f7 = new LiveValidation('email');
+                                                var f7 = new LiveValidation('emailRegister');
                                                 f7.add(Validate.Email);
                                             </script>
                                         </div>
@@ -73,6 +73,14 @@
                                                 var f6 = new LiveValidation('address');
                                                 f6.add(Validate.Presence, {failureMessage: "Escribir por favor tu Direccion!!!"});
                                             </script>
+                                            <div class="input-field">
+                                                <div class="right">
+                                                    <img id="captcha" src="../server/securimage/securimage_show.php" alt="CAPTCHA Image" />            
+                                                </div>
+                                                <label for="captcha_code" class="form-label">Captcha</label>
+                                                <input type="text" name="captcha_code" id="capcha" size="10" maxlength="6" />
+                                                <a href="#" onclick="document.getElementById('captcha').src = '../server/securimage/securimage_show.php?' + Math.random(); return false">Cambiar captcha</a>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="center">
@@ -88,19 +96,26 @@
     </div>
 <section/>
 <script>
-    const form = document.getElementById("form")
-    form.addEventListener("submit", e => {
+    const formRegister = document.getElementById("formRegister")
+    formRegister.addEventListener("submit", e => {
         e.preventDefault()
         const login = document.getElementById("login").value
         const password = document.getElementById("password").value
-        const name = document.getElementById("name").value
+        const name = document.getElementById("nameRegister").value
         const curp = document.getElementById("curp").value
         const rfc = document.getElementById("rfc").value
         const address = document.getElementById("address").value
         const email = document.getElementById("email").value
-        axios.post("../server/registro.php", {login, password, name, curp, rfc, address, email}).then(response => {
+        const capcha = document.getElementById("capcha").value
+        axios.post("../server/registro.php", {login, password, name, curp, rfc, address, email, capcha}).then(response => {
             if(response){
-                window.location.replace("http://localhost/adoptar/views/login.php");
+                var URLdomain = window.location.host;
+
+                if(response['data']['error'] == "Error en capcha") {
+                    alert("Error en capcha intenta nuevamente.");
+                } else {
+                    window.location.replace("/adoptar/views/login.php");
+                }
             }
         })
     })
