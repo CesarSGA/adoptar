@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-<section/>
+</section>
 <script>
     const formRegister = document.getElementById("formRegister")
     formRegister.addEventListener("submit", e => {
