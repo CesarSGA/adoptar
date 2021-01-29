@@ -64,7 +64,7 @@
                                             </div>
                                             <script type="text/javascript">
                                                 var f4 = new LiveValidation('curp');
-                                                f4.add(Validate.Presence, {failureMessage: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/, failureMessage: "Escribir por favor tu CURP!!!"});
+                                                f4.add(Validate.Format, {pattern: /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/, failureMessage: "Escribir por favor tu CURP!!!"});
                                                 f4.add(Validate.Length, {minimum: 18, maximum: 18});
                                             </script>
                                             <div class="input-field">
@@ -116,7 +116,19 @@
                 if(response['data']['error'] == "Error en capcha") {
                     alert("Error en capcha intenta nuevamente.");
                 } else {
-                    window.location.replace("/adoptar/views/login.php");
+                    if(response['data']['error'] == "CURP no es valido, valida tu informacion") {
+                        alert("CURP no es valido, valida tu informacion.");
+                    } else {
+                        if(response['data']['error'] == "RFC no es valido, valida tu informacion") {
+                            alert("RFC no es valido, valida tu informacion.");
+                        } else {
+                            if(response['data']['error'] == "Valida tu informacion"){
+                                alert("Valida tu informacion.");
+                            } else {
+                                window.location.replace("/adoptar/views/login.php");
+                            }
+                        }
+                    }
                 }
             }
         })

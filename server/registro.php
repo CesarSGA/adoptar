@@ -30,14 +30,28 @@
         $mensaje = ["error" => "Error en capcha"];
         echo json_encode($mensaje);
     } else {
-        $sql = "INSERT INTO usuarios (username, password, name, curp, rfc, address, email) VALUES ('$login', '$passwordMd5', '$name', '$curp', '$rfc', '$address', '$email')";
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
+        if(strlen($curp) == 18){
+            if(strlen($rfc) == 12){
+                if(strlen($login) > 0 && strlen($passwordMd5) > 0 && strlen($name) > 0 && strlen($address) > 0 && strlen($email) > 0){
+                    $sql = "INSERT INTO usuarios (username, password, name, curp, rfc, address, email) VALUES ('$login', '$passwordMd5', '$name', '$curp', '$rfc', '$address', '$email')";
+                    if (mysqli_query($conn, $sql)) {
+                        echo "New record created successfully";
+                    } else {
+                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                    }
+                    mysqli_close($conn);
+                    echo json_encode($datos);
+                } else {
+                    $mensajeCampos = ["error" => "Valida tu informacion"];
+                    echo json_encode($mensajeCampos);
+                }
+            } else {
+                $mensajeRFC = ["error" => "RFC no es valido, valida tu informacion"];
+                echo json_encode($mensajeRFC);
+            }
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            $mensajeCURP = ["error" => "CURP no es valido, valida tu informacion"];
+            echo json_encode($mensajeCURP);
         }
-        mysqli_close($conn);
-
-        echo json_encode($datos);
     }   
 ?>
