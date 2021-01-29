@@ -27,7 +27,7 @@
             <nav>
                 <div class="container" >
                     <div class="nav-wrapper">
-                        <a href="./index.html" class="brand-logo"><i class="material-icons">child_friendly</i>PETTING</a>
+                        <a href="../index.html" class="brand-logo"><i class="material-icons">child_friendly</i>PETTING</a>
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul class="right hide-on-med-and-down">
                             <li><a href="../index.html">Inicio</a></li>
@@ -62,9 +62,13 @@
                 </div>
             </nav>
         </div>
+        <ul id="dropdown" class="dropdown-content">
+            <li><a href="views/gatos.php">Gatos</a></li>
+            <li><a href="views/perros.php">Perros</a></li>
+        </ul>
         <ul class="sidenav" id="mobile-demo">
             <li><a href="../index.html">Inicio</a></li>
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Adopta<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown">Adopta<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="stories.php">Historias</a></li>
             <li><a class="modal-trigger" href="#modalEs">Esteriliza</a></li>
             <?php if(isset($_SESSION['user'])){ ?>
